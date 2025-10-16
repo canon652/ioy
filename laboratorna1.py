@@ -1,4 +1,6 @@
 import math
+
+
 # задание 1
 WHITE_BG = '\u001b[47m'   
 BLUE_BG  = '\u001b[44m' 
@@ -28,7 +30,7 @@ def Finland_flag(width=36, height=18, cross_thickness=None, vertical_pos=None):
         # соединяем и сбрасываем цвет в конце строки
         print(''.join(row_parts) + RESET)
 
-#Finland_flag()
+Finland_flag()
 
 
 # задание 2  
@@ -57,7 +59,7 @@ def draw_two_circles(width=40, height=15, radius=4, aspect=2.0, distance=15):
                 row += WHITE_BG + " "
         print(row + RESET)
 
-draw_two_circles()
+#draw_two_circles()
 
 #задание 3         
 
@@ -68,10 +70,10 @@ def graph():
     for y in range(height, -1, -1):  
         line = ""
         for x in range(width + 1):   
-            func_y = x / 2           # функция 
-            display_y = func_y * (height / (width / 2))
+            func_y = x / 2           
+            #коэффициент растяжения, чтобы пропорции графика были нормальными
+            display_y = func_y * (height / (width / 2)) 
 
-            # точка графика (немного допуска, чтобы линия не прерывалась)
             if abs(y - display_y) < 0.3:
                 line += f"{RED_TEXT}#{RESET}"
 
@@ -86,7 +88,7 @@ def graph():
                 line += " "
         print(line)
 
-#graph()
+graph()
 
 #задание 4
 
@@ -117,5 +119,5 @@ neg_percent = neg_sum / total_sum * 100
 pos_bar = "#" * int(pos_percent)
 neg_bar = "#" * int(neg_percent)
 
-#print(f"Положительные (5..10): |{BLUE_TEXT}{pos_bar}{RESET}" + f" {pos_percent:.1f}%")
-#print(f"Отрицательные (-10..-5): |{RED_TEXT}{neg_bar}{RESET}" + f" {neg_percent:.1f}%")
+print(f"Положительные (5..10): |{BLUE_TEXT}{pos_bar}{RESET}" + f" {pos_percent:.1f}%")
+print(f"Отрицательные (-10..-5): |{RED_TEXT}{neg_bar}{RESET}" + f" {neg_percent:.1f}%")
